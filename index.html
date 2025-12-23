@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Afiq | IT Graduate Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #6366f1;
+        --secondary-color: #4f46e5;
+        --dark-color: #0f172a;
+        --light-color: #f8fafc;
+        --accent-color: #8b5cf6;
+        --text-color: #334155;
+        --gray-color: #94a3b8;
+        --card-bg: #ffffff;
+        --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      [data-theme="dark"] {
+        --primary-color: #818cf8;
+        --secondary-color: #6366f1;
+        --dark-color: #f1f5f9;
+        --light-color: #0f172a;
+        --accent-color: #a78bfa;
+        --text-color: #cbd5e1;
+        --gray-color: #64748b;
+        --card-bg: #1e293b;
+        --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--light-color);
+        overflow-x: hidden;
+        transition: var(--transition);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        border-radius: 2px;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      section {
+        padding: 100px 0;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 32px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        border: none;
+        font-size: 1rem;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.7s;
+      }
+
+      .btn:hover::before {
+        left: 100%;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.3);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+      }
+
+      .btn-outline:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .btn-small {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+
+      /* Header & Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(248, 250, 252, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+      }
+
+      [data-theme="dark"] header {
+        background-color: rgba(15, 23, 42, 0.95);
+      }
+
+      .header-scrolled {
+        padding: 10px 0;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .logo-icon {
+        color: var(--accent-color);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        font-weight: 500;
+        position: relative;
+        padding: 5px 0;
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .theme-toggle {
+        background: none;
+        border: none;
+        color: var(--text-color);
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: var(--transition);
+      }
+
+      .theme-toggle:hover {
+        background-color: rgba(99, 102, 241, 0.1);
+        color: var(--primary-color);
+      }
+
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: var(--dark-color);
+      }
+
+      /* Hero Section */
+      .hero {
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
+        padding-top: 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.05) 0%,
+          rgba(139, 92, 246, 0.05) 100%
+        );
+        z-index: -1;
+      }
+
+      .hero-content {
+        flex: 1;
+        padding-right: 2rem;
+      }
+
+      .hero-image {
+        flex: 1;
+        text-align: center;
+        position: relative;
+      }
+
+      .hero-image::before {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        opacity: 0.1;
+        filter: blur(60px);
+        z-index: -1;
+      }
+
+      .hero-image img {
+        max-width: 100%;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        transform: perspective(1000px) rotateY(-10deg);
+        transition: var(--transition);
+      }
+
+      .hero-image img:hover {
+        transform: perspective(1000px) rotateY(0deg);
+      }
+
+      .hero h1 {
+        margin-bottom: 1.5rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: var(--gray-color);
+        max-width: 600px;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .typing-text {
+        font-family: "JetBrains Mono", monospace;
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+
+      /* About Section */
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-text p {
+        margin-bottom: 1.5rem;
+      }
+
+      .skills-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .skill-item {
+        background-color: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        text-align: center;
+        transition: var(--transition);
+        border: 1px solid rgba(99, 102, 241, 0.1);
+      }
+
+      .skill-item:hover {
+        transform: translateY(-5px);
+        border-color: var(--primary-color);
+        box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.15);
+      }
+
+      .skill-item i {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      /* Projects Section */
+      .projects {
+        background-color: rgba(99, 102, 241, 0.03);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .project-card {
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        border: 1px solid rgba(99, 102, 241, 0.1);
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary-color);
+        box-shadow: 0 30px 60px -10px rgba(99, 102, 241, 0.2);
+      }
+
+      .project-img {
+        height: 220px;
+        overflow: hidden;
+      }
+
+      .project-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .project-card:hover .project-img img {
+        transform: scale(1.05);
+      }
+
+      .project-info {
+        padding: 2rem;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .project-tech span {
+        background-color: rgba(99, 102, 241, 0.1);
+        color: var(--primary-color);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      /* Experience Section */
+      .experience-timeline {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .experience-timeline::before {
+        content: "";
+        position: absolute;
+        left: 150px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(
+          to bottom,
+          var(--primary-color),
+          var(--accent-color)
+        );
+      }
+
+      .experience-item {
+        position: relative;
+        padding-left: 200px;
+        margin-bottom: 3rem;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .experience-date {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        text-align: center;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .experience-date img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .experience-date-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 8px;
+        font-size: 0.9rem;
+      }
+
+      .experience-content {
+        background-color: var(--card-bg);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        flex: 1;
+      }
+
+      .experience-company {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .company-logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--card-bg);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      .company-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 4px;
+      }
+
+      /* Certifications Section */
+      .certifications {
+        background-color: rgba(99, 102, 241, 0.03);
+      }
+
+      .certifications-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .certification-card {
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        border: 1px solid rgba(99, 102, 241, 0.1);
+      }
+
+      .certification-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary-color);
+        box-shadow: 0 30px 60px -10px rgba(99, 102, 241, 0.2);
+      }
+
+      .certification-img {
+        height: 200px;
+        overflow: hidden;
+        background: var(--light-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+
+      .certification-img img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        transition: var(--transition);
+      }
+
+      .certification-card:hover .certification-img img {
+        transform: scale(1.05);
+      }
+
+      .certification-info {
+        padding: 1.5rem;
+      }
+
+      .certification-provider {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        color: var(--gray-color);
+        font-size: 0.9rem;
+      }
+
+      .certification-provider i {
+        color: var(--primary-color);
+      }
+
+      .certification-date {
+        display: inline-block;
+        background-color: rgba(99, 102, 241, 0.1);
+        color: var(--primary-color);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-top: 1rem;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 4rem 0 2rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-info h3 {
+        color: white;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-details {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .contact-item i {
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        margin-top: 4px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background-color: var(--primary-color);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--gray-color);
+        font-size: 0.9rem;
+      }
+
+      /* Responsive Design */
+      @media screen and (max-width: 992px) {
+        h1 {
+          font-size: 2.8rem;
+        }
+
+        h2 {
+          font-size: 2.2rem;
+        }
+
+        .hero-content,
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-content {
+          padding-right: 0;
+          margin-bottom: 3rem;
+        }
+
+        .skills-list {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .experience-timeline::before {
+          left: 100px;
+        }
+
+        .experience-item {
+          padding-left: 150px;
+        }
+
+        .experience-date {
+          width: 90px;
+          height: 90px;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 80px;
+          left: 0;
+          width: 100%;
+          background-color: var(--card-bg);
+          flex-direction: column;
+          align-items: center;
+          padding: 2rem 0;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          transform: translateY(-150%);
+          transition: var(--transition);
+          z-index: 999;
+          gap: 1rem;
+        }
+
+        .nav-links.active {
+          transform: translateY(0);
+        }
+
+        .nav-links li {
+          margin: 0;
+        }
+
+        .hamburger {
+          display: block;
+        }
+
+        .hero-btns {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .skills-list {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .projects-grid,
+        .certifications-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .experience-timeline::before {
+          left: 60px;
+        }
+
+        .experience-item {
+          padding-left: 100px;
+          flex-direction: column;
+        }
+
+        .experience-date {
+          width: 50px;
+          height: 50px;
+          position: relative;
+          margin-bottom: 1rem;
+        }
+
+        .experience-date-text {
+          display: none;
+        }
+
+        .company-logo {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      @media screen and (max-width: 576px) {
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        h2 {
+          font-size: 1.8rem;
+        }
+
+        section {
+          padding: 70px 0;
+        }
+
+        .skills-list {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header & Navigation -->
+    <header id="header">
+      <div class="container">
+        <nav>
+          <a href="#" class="logo">
+            <i class="fas fa-code logo-icon"></i>
+            Portfolio
+          </a>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+          </ul>
+          <div class="nav-controls">
+            <button class="theme-toggle" id="themeToggle">
+              <i class="fas fa-moon"></i>
+            </button>
+            <button class="hamburger" id="hamburger">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="container">
+        <div class="about-content">
+          <div class="hero-content">
+            <h1>Hi, I'm <span class="typing-text" id="typing-text"></span></h1>
+            <p>
+              IT graduate passionate about building web and Android
+              applications. Experienced in PHP, CodeIgniter, Java, and MySQL,
+              creating practical solutions for real-world challenges.
+            </p>
+            <div class="hero-btns">
+              <a href="#projects" class="btn">
+                <i class="fas fa-rocket"></i>
+                View Projects
+              </a>
+
+              <a href="#footer" class="btn btn-outline">
+                <i class="fas fa-envelope"></i>
+                Contact Me
+              </a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img
+              src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="IT Graduate"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <!-- Add this profile photo container -->
+            <div
+              class="profile-photo-container"
+              style="margin-bottom: 2rem; text-align: center"
+            >
+              <img
+                src="images/afiq.jpg"
+                alt="Profile Photo"
+                style="
+                  width: 200px;
+                  height: 200px;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  border: 4px solid var(--primary-color);
+                  box-shadow: var(--shadow);
+                "
+              />
+            </div>
+            <!-- End of profile photo -->
+
+            <p>
+              I’m <strong>Muhammad Afiq</strong>, a fresh graduate in
+              Information Technology specializing in software development. I
+              have hands-on experience creating web-based management systems and
+              Android applications through academic projects and workshops. I am
+              passionate about building practical, user-friendly applications
+              that solve real-world problems and continuously learning new
+              technologies to improve my skills.
+            </p>
+            <a href="#footer" class="btn">
+              <i class="fas fa-paper-plane"></i>
+              Get In Touch
+            </a>
+          </div>
+          <div class="skills">
+            <h3>Technical Skills</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <i class="fa-solid fa-globe"></i>
+                <h4>Web Development</h4>
+                <p>PHP, CodeIgniter 4, Laravel</p>
+              </div>
+              <div class="skill-item">
+                <i class="fa-brands fa-css3-alt"></i>
+                <h4>Css</h4>
+                <p>Bootstrap, Tailwind</p>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <h4>Databases</h4>
+                <p>MySql, Firebase, SqLite</p>
+              </div>
+
+              <div class="skill-item">
+                <i class="fas fa-mobile-alt"></i>
+                <h4>Mobile</h4>
+                <p>Kotlin, Java</p>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-js-square"></i>
+                <h4>JavaScript</h4>
+                <p>React</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-img">
+              <img src="images/AQAMS.png" alt="E-commerce Platform" />
+            </div>
+            <div class="project-info">
+              <h3>Al-Quran Academy Management System</h3>
+              <p>
+                Manages students, academic reports, and tuition payments, giving
+                administrators and parents real-time access to progress and
+                payment status.
+              </p>
+              <div class="project-tech">
+                <span>CodeIgniter4</span>
+                <span>WhatappsAPI</span>
+                <span>Bootstrap</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img">
+              <img src="images/tracksystem.png" alt="Task Manager" />
+            </div>
+            <div class="project-info">
+              <h3>TrackSUK – Asset Management System</h3>
+              <p>
+                A system for managing and tracking office assets, monitoring
+                item movement, and generating stock reports to improve
+                efficiency and reduce errors.
+              </p>
+              <div class="project-tech">
+                <span>Laravel</span>
+                <span>Tailwind CSS</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img">
+              <img src="images/sukcas.png" alt="Weather App" />
+            </div>
+            <div class="project-info">
+              <h3>SUKSCAS – Smart Conference Attendance System</h3>
+              <p>
+                A system for efficient conference management with real-time
+                attendance tracking, automated email notifications, and
+                organized seating arrangements.
+              </p>
+              <div class="project-tech">
+                <span>CodeIgniter4</span>
+
+                <span>Bootstrap</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img">
+              <img src="images/casher.png" alt="Weather App" />
+            </div>
+            <div class="project-info">
+              <h3>Restaurant Ordering & Cashier System</h3>
+              <p>
+                A system to manage restaurant orders, track tables, and handle
+                payments efficiently, streamlining day-to-day operations.
+              </p>
+              <div class="project-tech">
+                <span>CodeIgniter4</span>
+
+                <span>Bootstrap</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience & Education</h2>
+        <div class="experience-timeline">
+          <div class="experience-item">
+            <div class="experience-date">
+              <img src="images/lecture.jpg" alt="Freelance Work" />
+              <div class="experience-date-text">2025</div>
+            </div>
+            <div class="experience-content">
+              <div class="experience-company">
+                <div>
+                  <h3>CodeIgniter 4 Workshop – Lecturer</h3>
+                  <p>Politeknik Kuala Terengganu</p>
+                </div>
+              </div>
+              <p>
+                Delivered a 2-day CodeIgniter 4 workshop covering MVC
+                architecture, controllers, models, routing, and basic CRUD
+                implementation.
+              </p>
+              <div class="project-tech">
+                <span>CodeIgniter</span>
+              </div>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="experience-date">
+              <img src="images/intern.png" alt="Tech Solutions Inc." />
+              <div class="experience-date-text">2025</div>
+            </div>
+            <div class="experience-content">
+              <div class="experience-company">
+                <div>
+                  <h3>Software Development Intern</h3>
+                  <p>Setiausaha Kerajaan Neregeri - Pejabat DUN</p>
+                </div>
+              </div>
+              <p>
+                Developed and supported web-based systems to improve internal
+                operations, including asset management, attendance tracking, and
+                administrative systems. Assisted in system development, testing,
+                and documentation while working with real organizational
+                requirements and stakeholders.
+              </p>
+              <div class="project-tech">
+                <span>CodeIgniter</span>
+                <span>Laravel</span>
+                <span>Tailwind</span>
+              </div>
+            </div>
+          </div>
+          <div class="experience-item">
+            <div class="experience-date">
+              <img src="images/poli.png" alt="University" />
+              <div class="experience-date-text">2022-2025</div>
+            </div>
+            <div class="experience-content">
+              <div class="experience-company">
+                <div>
+                  <h3>Diploma in Information Technology</h3>
+                  <p>Polytechnic Kuala Terengganu</p>
+                </div>
+              </div>
+              <p>
+                Graduated with honors (GPA: 3.7/4.0). Specialized in web
+                technologies and cloud computing. Completed capstone project on
+                AI-powered recommendation systems. Coursework included Advanced
+                Web Development, Cloud Architecture, Database Systems, and
+                Software Engineering.
+              </p>
+              <div class="project-tech">
+                <span>Academic Excellence</span>
+
+                <span>Team Projects</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+      <div class="container">
+        <h2 class="section-title">Certifications</h2>
+        <div class="certifications-grid">
+          <div class="certification-card">
+            <div class="certification-img">
+              <img src="images/Android Certified Application Developer.png" />
+            </div>
+            <div class="certification-info">
+              <h3>Android Certified Application Developer</h3>
+              <div class="certification-provider">
+                <span>Android ATC</span>
+              </div>
+              <p>
+                Proficient in developing Android applications using standard app
+                components, lifecycle management, secure data handling, and
+                deployment best practices.
+              </p>
+              <span class="certification-date">Issued: September 2025</span>
+            </div>
+          </div>
+          <div class="certification-card">
+            <div class="certification-img">
+              <img src="images/Android Certified Application Engineer.png" />
+            </div>
+            <div class="certification-info">
+              <h3>Android Certified Application Engineer</h3>
+              <div class="certification-provider">
+                <span>Android ATC</span>
+              </div>
+              <p>
+                Demonstrated proficiency in Android application development,
+                including app components, activities, intents, permissions, data
+                storage, and secure app design.
+              </p>
+              <span class="certification-date">Issued: December 2025</span>
+            </div>
+          </div>
+          <div class="certification-card">
+            <div class="certification-img">
+              <img src="images/Gold Innovation Cert - University_AQAMS.png" />
+            </div>
+            <div class="certification-info">
+              <h3>Gold Award – Al-Quran Academy Management System (AQAMS)</h3>
+              <div class="certification-provider">
+                <span
+                  >11TH INTERNATIONAL CONFERENCE ON GLOBAL EDUCATION (ICGE
+                  XI)</span
+                >
+              </div>
+              <p>
+                Awarded at the 11th International Conference on Global Education
+                (ICGE XI) for the development of the Al-Quran Academy Management
+                System (AQAMS), recognizing excellence in software project
+                design and implementation.
+              </p>
+              <span class="certification-date">Issued: May 2025</span>
+            </div>
+          </div>
+          <div class="certification-card">
+            <div class="certification-img">
+              <img src="images/sijil penyertaan penceramah.png" />
+            </div>
+            <div class="certification-info">
+              <h3>
+                Certificate of Appreciation – CodeIgniter Workshop (Lecturer)
+              </h3>
+              <div class="certification-provider">
+                <span>Polytechnic institute Kuala Terengganu</span>
+              </div>
+              <p>
+                Recognized for delivering a lecture and sharing expertise in
+                CodeIgniter framework during the workshop, demonstrating
+                practical knowledge and teaching skills.
+              </p>
+              <span class="certification-date">Issued: August 2025</span>
+            </div>
+          </div>
+          <div class="certification-card">
+            <div class="certification-img">
+              <img src="images/sijil codeigniter.png" />
+            </div>
+            <div class="certification-info">
+              <h3>
+                Certificate of Participation – CodeIgniter Framework Course
+              </h3>
+              <div class="certification-provider">
+                <span>Polytechnic institute Kuala Terengganu</span>
+              </div>
+              <p>
+                Completed a practical CodeIgniter course covering web
+                application development, MVC framework, and project
+                implementation.
+              </p>
+              <span class="certification-date">Issued: Jun 2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <h3>Muhammad Afiq Bin Che Wan Mohd Noor</h3>
+            <p>
+              Fresh IT graduate passionate about building innovative digital
+              solutions. Always open to new opportunities and collaborations.
+            </p>
+            <div class="social-links">
+              <a href="https://github.com/yourusername" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://linkedin.com/in/yourusername" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://twitter.com/yourusername" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://instagram.com/yourusername" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer-contact">
+            <h3>Contact Information</h3>
+            <div class="contact-details">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <h4>Email</h4>
+                  <p>afiq6492@gmail.com.com</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <h4>Phone</h4>
+                  <p>+60 11-40463513</p>
+                </div>
+              </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Muhd Afiq. All rights reserved.</p>
+          <p>
+            Built with <i class="fas fa-heart" style="color: #ef4444"></i> and
+            modern web technologies
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Theme Toggle
+      const themeToggle = document.getElementById("themeToggle");
+      const themeIcon = themeToggle.querySelector("i");
+
+      // Check for saved theme or default to light
+      const savedTheme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+      updateThemeIcon(savedTheme);
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme =
+          document.documentElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        updateThemeIcon(newTheme);
+      });
+
+      function updateThemeIcon(theme) {
+        themeIcon.className = theme === "dark" ? "fas fa-sun" : "fas fa-moon";
+      }
+
+      // Mobile Navigation Toggle
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        hamburger.querySelector("i").classList.toggle("fa-bars");
+        hamburger.querySelector("i").classList.toggle("fa-times");
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          hamburger.querySelector("i").classList.add("fa-bars");
+          hamburger.querySelector("i").classList.remove("fa-times");
+        });
+      });
+
+      // Header scroll effect
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("header");
+        if (window.scrollY > 100) {
+          header.classList.add("header-scrolled");
+        } else {
+          header.classList.remove("header-scrolled");
+        }
+      });
+
+      const typingText = document.getElementById("typing-text");
+      const texts = [
+        "Muhammad Afiq", // Your name
+        "an IT Graduate", // Fresh graduate
+        "a Web & Android Developer", // Highlight main skills
+        "a CodeIgniter & PHP Enthusiast", // Specific frameworks
+        "a Problem Solver", // Soft skill / value
+      ];
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let typingSpeed = 100;
+
+      // (Keep the rest of your typing animation JS logic)
+
+      function typeText() {
+        const currentText = texts[textIndex];
+
+        if (isDeleting) {
+          typingText.textContent = currentText.substring(0, charIndex - 1);
+          charIndex--;
+          typingSpeed = 50;
+        } else {
+          typingText.textContent = currentText.substring(0, charIndex + 1);
+          charIndex++;
+          typingSpeed = 100;
+        }
+
+        if (!isDeleting && charIndex === currentText.length) {
+          typingSpeed = 1500;
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+          typingSpeed = 500;
+        }
+
+        setTimeout(typeText, typingSpeed);
+      }
+
+      // Start typing effect when page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(typeText, 1000);
+
+        // Initialize animations
+        initAnimations();
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Animation on scroll
+      function initAnimations() {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        }, observerOptions);
+
+        // Observe elements
+        const animatedElements = document.querySelectorAll(
+          ".skill-item, .project-card, .certification-card, .experience-item"
+        );
+
+        animatedElements.forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(30px)";
+          el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          observer.observe(el);
+        });
+      }
+
+      // Print resume button
+      document
+        .querySelector('a[href="resume.pdf"]')
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          alert(
+            "Resume download initiated. In a real portfolio, this would download your resume PDF."
+          );
+        });
+    </script>
+  </body>
+</html>
